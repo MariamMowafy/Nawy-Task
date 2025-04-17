@@ -32,7 +32,7 @@ app.use('/server/user/',userRouter)
 app.use('/server/auth/',authRouter)
 
 app.use((err, req, res, next) => {
-    const statusCode = err.status || 500;
+    const statusCode = err.statusCode || 500;
     const message = err.message || "Internal Server Error";
     return res.status(statusCode).json({ status: "Request Failed", statusCode, message });
 });
